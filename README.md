@@ -7,6 +7,7 @@ This fork includes a `flake.nix` file to run a local Nix development environment
 
 The `deps.nix` file is already created for you (using (mix2nix)[https://github.com/ydlr/mix2nix]). 
 Run `nix develop` to enter a local, isolated environment leveraging the nix store.  
+Run `$installPhase` once you've entered the shell to install the livebook, and patch your PATH manually to use the `livebook` command.
 ------
 
 Livebook is a web application for writing interactive and collaborative code notebooks for Elixir, built with [Phoenix LiveView](https://github.com/phoenixframework/phoenix_live_view). It features:
