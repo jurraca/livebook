@@ -49,7 +49,7 @@ defmodule Livebook.MixProject do
   #
   defp deps do
     [
-      {:phoenix, "~> 1.5"},
+      {:phoenix, "~> 1.6.0-rc.0"},
       {:phoenix_html, "~> 3.0"},
       {:phoenix_live_view, "~> 0.17.3"},
       {:phoenix_live_dashboard, "~> 0.6.0"},
@@ -62,7 +62,8 @@ defmodule Livebook.MixProject do
       {:aws_signature, "~> 0.2.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:floki, ">= 0.27.0", only: :test},
-      {:bypass, "~> 2.1", only: :test}
+      {:bypass, "~> 2.1", only: :test},
+      {:esbuild, "~> 0.1", runtime: Mix.env() == :dev},
     ]
   end
 
