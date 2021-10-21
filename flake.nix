@@ -1,5 +1,5 @@
 {
-  description = "A flake template for Elixir projects built with Mix";
+  description = "A flake for Elixir's Livebook.";
 
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs?ref=master;
@@ -14,7 +14,6 @@
       };
 
     overlay = final: prev: rec {
-
       livebook = with final;
         let
           beamPackages = beam.packagesWith beam.interpreters.erlangR24;
