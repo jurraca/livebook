@@ -17,6 +17,7 @@
       livebook = with final;
         let
           beamPackages = beam.packagesWith beam.interpreters.erlangR24;
+          elixir = beam.packages.erlangR24.elixir_1_12;
           mixNixDeps = import ./deps.nix { inherit lib beamPackages; };
         in beamPackages.mixRelease {
           inherit mixNixDeps;
@@ -35,13 +36,18 @@
       devShells = {
         dev = import ./shell.nix {
           pkgs = legacyPackages;
-          db_name = "db";
+          db_name = "db_dev";
           MIX_ENV = "dev";
         };
         test = import ./shell.nix {
           pkgs = legacyPackages;
           db_name = "db_test";
           MIX_ENV = "test";
+        };
+        prod = import ./shell.nix {
+          pkgs = legacyPackages;
+          db_name = "db";
+          MIX_ENV = "prod";
         };
       };
       apps.livebook = utils.lib.mkApp { drv = packages.livebook; };
